@@ -1,0 +1,32 @@
+---
+title: "Gender Inequality Index"
+author: "Afra Li"
+date: 2022-11-03T21:13:14-05:00
+categories: ["R"]
+tags: ["R Markdown", "plot", "regression"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+# Introduction
+
+The Gender Inequality Index (GII), released by the UN Development Programme (UNDP), is an inequality index for 159 countries from 1995 to 2015. It measures gender inequalities and is calculated using 3 important aspects of human development: (1) reproductive health, measured by maternal mortality ratio and adolescent birth rates; (2) empowerment, measured by proportion of parliamentary seats occupied by females and proportion of adult females and males aged 25 years and older with at least some secondary education; and (3) economic status, expressed as labor market participation and measured by labor force participation rate of female and male populations aged 15 and older. 
+
+This section presents GII indices for 30 randomly selected countries out of 149 countries, with data dated 2012. This section aims to present you with significant differences in gender inequality.
+
+# Including Plots
+
+
+```{r bar, echo=FALSE, fig.cap='30 randomly selected countries to showcase the GII Index.', message=FALSE, warning=FALSE, tidy=FALSE}
+library(ggplot2)
+library(plotly)
+df<-read.csv("/Users/mac/Desktop/gender_1.csv")
+p=ggplot(df, aes(x=y, y=x, color= "black",fill='grey'))+
+  geom_col(width=0.5)+
+  labs(x="GII Index", y="Country name")
+
+ggplotly(p)
+
+```
